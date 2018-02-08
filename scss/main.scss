@@ -1,0 +1,455 @@
+/*
+	Theme Name: chc
+	Theme URI: Branch of http://html5blank.com
+	Description: Therapist theme_location
+	Version: 1.4.3
+	Author: Maxwell Cady // Todd Motto (@toddmotto)
+	Author URI: http://maxwellcady.com // http://toddmotto.com
+	Tags: Blank, HTML5, CSS3
+
+	License: MIT
+	License URI: http://opensource.org/licenses/mit-license.php
+*/
+
+/*------------------------------------*\
+    VARIABLES
+\*------------------------------------*/
+$teal: #009F9A;
+$pink: #D17F84;
+$black: #444444;
+/*------------------------------------*\
+    FONTS
+\*------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Cabin+Condensed:400,700|Noto+Serif');
+
+html {
+  font-family: 'Cabin Condensed', sans-serif;
+  color: $black;
+  position: relative;
+  z-index: 1;
+}
+
+/*------------------------------------*\
+    RESETS / GLOBALS
+\*------------------------------------*/
+
+/* global box-sizing */
+*,
+*:after,
+*:before {
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+p a {
+  color: $teal;
+}
+
+img {
+	max-width:100%;
+}
+a {
+	color: inherit;
+	text-decoration:none;
+  transition: color 200ms;
+}
+a:hover {
+	color: $teal;
+}
+a:focus {
+	outline:0;
+}
+a:hover,
+a:active {
+	outline:0;
+}
+input:focus {
+	outline:0;
+	border:1px solid #04A4CC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.button {
+  font-weight: bold;
+  background: $teal;
+  padding: 5px 10px;
+  border: 0;
+  color: white;
+  font-size: 1.2em;
+
+  display: inline-block;
+  transition: background 250ms;
+  &:hover {
+    background: darken($teal, 5%);
+  }
+}
+
+/* wrapper */
+.wrapper {
+	max-width:1280px;
+	width:95%;
+	margin:0 auto;
+	position:relative;
+}
+
+/*------------------------------------*\
+    HEADER
+\*------------------------------------*/
+
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  align-items: center;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  transition: background-color 400ms ease-in-out;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  img {
+    max-height: 65px;
+    margin-right: 10px;
+  }
+  &-text {
+    display: inline;
+    // text-align: center;
+    h1 {
+      font-family: 'Noto Serif', 'Georgia', serif;
+      color: $teal;
+      font-size: 1.5em;
+    }
+    h2 {
+      font-family: 'Alex Brush', cursive;
+      color: $pink;
+    }
+    @media screen and (max-width: 420px) {
+      h1, h2 {
+        display: none;
+      }
+    }
+  }
+
+}
+
+nav.main-nav {
+    @media screen and (max-width: 650px) {
+      display: none;
+    }
+}
+
+nav.main-nav ul {
+  li {
+    font-size: 1.1em;
+    display: inline;
+    padding: 5px 10px;
+  }
+}
+
+nav.main-nav .sub-menu {
+  display: none;
+}
+
+nav.main-nav .menu-item-has-children {
+  position: relative;
+  .sub-menu {
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    width: 200px;
+    font-size: 0.8em;
+    padding-bottom: 15px;
+    li {
+      display: block;
+      padding-left: 10px;
+      margin-top: 10px;
+    }
+
+  }
+}
+
+// MOBILE NAV
+
+nav.mobile-nav {
+  overflow-x: hidden;
+  position: fixed;
+  height: 100%;
+  width: 50vw;
+  background: linear-gradient(
+    to bottom,
+    lighten($pink, 25%), lighten($teal, 65%)
+  );
+  right: -100vw;
+  top: 0;
+  z-index: 100;
+  transition: right 200ms;
+  padding: 12px;
+  .mobile-nav-toggle {
+    text-align: right;
+    margin-top: 9px;
+  }
+  ul {
+    width: 100%;
+    padding-left: 5px;
+    // text-align: center;
+    font-size: 1.4em;
+    .menu-item-has-children {
+      ul {
+        padding-left: 5px;
+      }
+    }
+
+
+    .sub-menu {
+      font-size: 0.8em;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+  }
+}
+
+.mobile-nav-shown {
+  right: 0 !important;
+  box-shadow: 20px 20px 40px 15px $black;
+}
+
+.mobile-nav-toggle {
+  display: none;
+  img {
+    max-height: 45px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 650px) {
+    display: block;
+
+  }
+}
+
+
+/*------------------------------------*\
+    INTRO
+\*------------------------------------*/
+
+.intro {
+  margin-top: 10vh;
+  height: 70vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  &-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      to top right,
+      transparentize($pink, 0.75), transparentize($teal, 0.75)
+    );
+    .lead {
+      width: 90%;
+      max-width: 1100px;
+    }
+    h1 {
+      font-family: 'Noto Serif', 'Georgia', serif;
+      color: $pink;
+      font-size: 3em;
+      text-shadow: 2px 2px 2px $black;
+      // text-align: center;
+      max-width: 70%;
+      @media screen and (max-width: 500px) {
+        font-size: 2.3em;
+      }
+    }
+    .button {
+      margin-top: 20px;
+      padding: 12px;
+    }
+  }
+}
+
+/*------------------------------------*\
+    CONTENT
+\*------------------------------------*/
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+  article {
+    flex: 3;
+  }
+  .sidebar-widget {
+    flex: 1;
+    padding: 20px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    @media screen and (max-width: 600px) {
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: $teal;
+    text-align: center;
+  }
+  ul{
+    list-style-type: circle;
+    padding-left: 20px;
+  }
+
+  span.special {
+    display: block;
+    font-weight: bold;
+    color: $teal;
+  }
+
+  .special-list {
+    list-style-type: none;
+    padding-left: 0;
+    color: $teal;
+    letter-spacing: 0.05em;
+  }
+
+  .paypal {
+    max-width: 200px;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    width: 300px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    th {
+      text-align: center;
+      padding: 15px;
+      color: #D17F84;
+    }
+    td {
+      padding: 10px;
+    }
+    tr:nth-of-type(2) {
+      background-color: #eee;
+    }
+  }
+}
+
+/*------------------------------------*\
+    RIGHT SIDEBAR
+\*------------------------------------*/
+div.aside {
+  margin-right: 20px;
+  h2 {
+    margin: 10px;
+    color: $pink;
+  }
+}
+
+
+/*------------------------------------*\
+    FOOTER
+\*------------------------------------*/
+
+.footer {
+  padding: 15px;
+  color: white;
+  text-align: center;
+  background: lighten(black, 20%);
+  p {
+    margin: 10px 0;
+    a {
+      color: $teal;
+    }
+  }
+}
+
+
+/*------------------------------------*\
+    SEARCH
+\*------------------------------------*/
+
+form.search {
+  margin: 10px 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  .search-input {
+    padding: 3px;
+  }
+  .search-submit {
+    box-sizing: border-box;
+  }
+}
+
+/*------------------------------------*\
+    WIDGET AREA
+\*------------------------------------*/
+aside.sidebar {
+  background: lighten(black, 20%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  // margin: 30px 0;
+  .sidebar-widget {
+    padding: 10px 0;
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .widget_nav_menu {
+    text-align: left;
+    ul {
+      margin: 0;
+    }
+    @media screen and (max-width: 700px) {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*------------------------------------*\
+    SEARCH RESULTS
+\*------------------------------------*/
+
+.search-results {
+  text-align: center;
+  h1, h2, h3, h4, h5, h6 {
+    color: $teal;
+  }
+}
