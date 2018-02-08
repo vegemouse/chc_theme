@@ -383,7 +383,7 @@ div.aside {
 
 .footer {
   padding: 15px;
-  color: white;
+  color: white !important;
   text-align: center;
   background: lighten(black, 20%);
   p {
@@ -417,6 +417,7 @@ form.search {
 \*------------------------------------*/
 aside.sidebar {
   background: lighten(black, 20%);
+  color: white !important;
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
